@@ -10,16 +10,21 @@ namespace CodingDojo_PokerHand
         {
             var pokerGame = new PokerGame();
 
-            var actual = pokerGame.GetResult();
-            Assert.AreEqual("Draw", actual);
+            var actual = pokerGame.GetResult("s1,s2,s3,s4,s5", "s1,s2,s3,s4,s5");
+            Assert.AreEqual("Draw, Kind: Straight Flush", actual);
         }
     }
 
     public class PokerGame
     {
-        public string GetResult()
+        public string GetResult(string card1, string card2)
         {
-            return "Draw";
+            if (card1 == card2)
+            {
+                return "Draw, Kind: Straight Flush";
+            }
+
+            return "";
         }
     }
 }
