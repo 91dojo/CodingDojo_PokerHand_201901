@@ -3,6 +3,23 @@ using System.Linq;
 
 namespace CodingDojo_PokerHand
 {
+    public class FlushMatcher : ICardTypeMatcher
+    {
+        public FlushMatcher()
+        {
+        }
+
+        public bool IsMatch(List<Card> cards)
+        {
+            return cards.GroupBy(c => c.Suit).Count() == 1;
+        }
+
+        public CardType CardType
+        {
+            get { return CardType.Flush; }
+        }
+    }
+
     public class StraightFlushMatcher : ICardTypeMatcher
     {
         public StraightFlushMatcher()
@@ -11,15 +28,10 @@ namespace CodingDojo_PokerHand
 
         public bool IsMatch(List<Card> cards)
         {
-            return IsFlush(cards) && IsStraight(cards);
+            return new FlushMatcher().IsMatch(cards) && IsStraight(cards);
         }
 
         public CardType CardType => CardType.StraightFlush;
-
-        private static bool IsFlush(List<Card> cards)
-        {
-            return cards.GroupBy(c => c.Suit).Count() == 1;
-        }
 
         private static bool IsStraight(List<Card> cards)
         {

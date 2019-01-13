@@ -26,18 +26,33 @@ namespace CodingDojo_PokerHand
             var cardJudge = new CardJudge(new List<Card>
             {
                 new Card("S", "2"),
-                new Card("S", "2"),
-                new Card("S", "2"),
-                new Card("S", "2"),
+                new Card("D", "2"),
+                new Card("C", "2"),
+                new Card("H", "2"),
                 new Card("S", "5")
             });
             Assert.AreEqual(CardType.FourOfAKind, cardJudge.CardType);
+        }
+
+        [TestMethod]
+        public void flush()
+        {
+            var cardJudge = new CardJudge(new List<Card>
+            {
+                new Card("S", "2"),
+                new Card("S", "3"),
+                new Card("S", "5"),
+                new Card("S", "7"),
+                new Card("S", "9")
+            });
+            Assert.AreEqual(CardType.Flush, cardJudge.CardType);
         }
     }
 
     public enum CardType
     {
         StraightFlush,
-        FourOfAKind
+        FourOfAKind,
+        Flush
     }
 }

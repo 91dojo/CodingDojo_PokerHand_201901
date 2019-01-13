@@ -8,6 +8,7 @@ namespace CodingDojo_PokerHand
         {
             new StraightFlushMatcher(),
             new FourOfAKindMatcher(),
+            new FlushMatcher()
         };
 
         public CardJudge(List<Card> cards)
@@ -33,4 +34,14 @@ namespace CodingDojo_PokerHand
 
         public CardType CardType { get; set; }
     }
+
+    //internal class FlushMatcher : ICardTypeMatcher
+    //{
+    //    public bool IsMatch(List<Card> cards)
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
+
+    //    public CardType CardType => CardType.Flush;
+    //}
 }
