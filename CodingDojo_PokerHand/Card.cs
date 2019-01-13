@@ -10,5 +10,8 @@
             _suit = suit;
             _numbers = numbers;
         }
+
+        public SuitType Suit { get; set; }
+        public int Number { get; set; }
     }
 }

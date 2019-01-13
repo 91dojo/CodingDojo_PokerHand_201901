@@ -8,6 +8,14 @@ namespace CodingDojo_PokerHand
         [TestMethod]
         public void S9()
         {
+            var card = new Card("s", "9");
+            Assert.AreEqual(SuitType.Spade, card.Suit);
+            Assert.AreEqual(9, card.Number);
         }
+    }
+
+    public enum SuitType
+    {
+        Spade
     }
 }
