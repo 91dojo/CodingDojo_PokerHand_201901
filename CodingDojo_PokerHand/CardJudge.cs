@@ -9,7 +9,7 @@ namespace CodingDojo_PokerHand
             new StraightFlushMatcher(),
             new FourOfAKindMatcher(),
             new FlushMatcher(),
-new StraightMatcher()
+            new StraightMatcher()
         };
 
         public CardJudge(List<Card> cards)
@@ -27,6 +27,7 @@ new StraightMatcher()
                     break;
                 }
             }
+
             //if (new StraightFlushMatcher().IsMatch(cards))
             //    CardType = this.CardType.StraightFlush;
             //else if (new FourOfAKindMatcher().IsMatch(cards))

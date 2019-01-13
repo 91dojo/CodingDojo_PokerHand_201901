@@ -61,6 +61,20 @@ namespace CodingDojo_PokerHand
             });
             Assert.AreEqual(CardType.Straight, cardJudge.CardType);
         }
+
+        [TestMethod]
+        public void straight_with_10JQAK()
+        {
+            var cardJudge = new CardJudge(new List<Card>
+            {
+                new Card("S", "10"),
+                new Card("S", "J"),
+                new Card("C", "Q"),
+                new Card("S", "A"),
+                new Card("S", "K")
+            });
+            Assert.AreEqual(CardType.Straight, cardJudge.CardType);
+        }
     }
 
     public enum CardType
