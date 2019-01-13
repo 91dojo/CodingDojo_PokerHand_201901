@@ -27,8 +27,8 @@ namespace CodingDojo_PokerHand
 
     public class PokerGame
     {
-        private readonly string _firstPlayer;
-        private readonly string _secondPlayer;
+        private string _firstPlayer;
+        private string _secondPlayer;
 
         public PokerGame(string firstPlayer, string secondPlayer)
         {
@@ -38,34 +38,33 @@ namespace CodingDojo_PokerHand
 
         public string GetResult(string card1, string card2)
         {
-            GetCardOfList(card1);
-
-            if (card1 == card2)
+            //List<Card> player1Cards = 
+            if (card1 != card2)
             {
-                return "Draw, Kind: Straight Flush";
+                return "Cindy Win, Kind: Straight Flush";
             }
 
-            return "";
+            return "Draw, Kind: Straight Flush";
         }
 
-        private List<CardGentor> GetCardOfList(string card1)
+        private List<Card> GetCardOfList(string card1)
         {
             var card = new CardGentor();
-            return card.getList(card1) ;
+            return card.getList(card1);
         }
     }
 
     internal class CardGentor
     {
-        public List<CardGentor> getList(string card1)
+        public List<Card> getList(string card1)
         {
             var cardArray = card1.Split(',');
             foreach (var card in cardArray)
             {
                 new Card(card.Substring(0), card.Substring(1));
             }
-            return new List<CardGentor>();
-            
+
+            return new List<Card>();
         }
     }
 
