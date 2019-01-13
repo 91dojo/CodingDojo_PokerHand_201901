@@ -33,6 +33,7 @@ namespace CodingDojo_PokerHand
                 var lookNumber = new Dictionary<string, int>()
                 {
                     {"J",11},
+                    {"Q",12},
                 };
                 if (lookNumber.ContainsKey(_numbers))
                 {
