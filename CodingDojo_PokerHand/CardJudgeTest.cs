@@ -55,11 +55,11 @@ namespace CodingDojo_PokerHand
             {
                 new Card("S", "2"),
                 new Card("S", "3"),
-                new Card("C", "4"),
-                new Card("S", "5"),
+                new Card("C", "5"),
+                new Card("S", "4"),
                 new Card("S", "6")
             });
-            Assert.AreEqual(CardType.Flush, cardJudge.CardType);
+            Assert.AreEqual(CardType.Straight, cardJudge.CardType);
         }
     }
 
@@ -67,6 +67,7 @@ namespace CodingDojo_PokerHand
     {
         StraightFlush,
         FourOfAKind,
-        Flush
+        Flush,
+        Straight
     }
 }

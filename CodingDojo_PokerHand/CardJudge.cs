@@ -8,7 +8,8 @@ namespace CodingDojo_PokerHand
         {
             new StraightFlushMatcher(),
             new FourOfAKindMatcher(),
-            new FlushMatcher()
+            new FlushMatcher(),
+new StraightMatcher()
         };
 
         public CardJudge(List<Card> cards)

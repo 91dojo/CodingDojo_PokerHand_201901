@@ -10,7 +10,7 @@ namespace CodingDojo_PokerHand
 
         public bool IsMatch(List<Card> cards)
         {
-            return new FlushMatcher().IsMatch(cards) && new StraightMatcher().IsStraight(cards);
+            return new FlushMatcher().IsMatch(cards) && new StraightMatcher().IsMatch(cards);
         }
 
         public CardType CardType => CardType.StraightFlush;
