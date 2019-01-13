@@ -10,7 +10,7 @@ namespace CodingDojo_PokerHand
         public Card(string suit, string numbers)
         {
             _suit = suit.ToUpper();
-            _numbers = numbers;
+            _numbers = numbers.ToUpper();
         }
 
         public SuitType Suit
@@ -30,6 +30,14 @@ namespace CodingDojo_PokerHand
         {
             get
             {
+                var lookNumber = new Dictionary<string, int>()
+                {
+                    {"J",11},
+                };
+                if (lookNumber.ContainsKey(_numbers))
+                {
+                    return lookNumber[_numbers];
+                }
                 return int.Parse(_numbers);
             }
         }
