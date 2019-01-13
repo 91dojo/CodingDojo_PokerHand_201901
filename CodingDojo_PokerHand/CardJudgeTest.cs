@@ -28,7 +28,7 @@ namespace CodingDojo_PokerHand
                 new Card("S", "2"),
                 new Card("S", "2"),
                 new Card("S", "2"),
-                new Card("S", "3"),
+                new Card("S", "2"),
                 new Card("S", "5")
             });
             Assert.AreEqual(CartType.FourOfAKind, cardJudge.CartType);

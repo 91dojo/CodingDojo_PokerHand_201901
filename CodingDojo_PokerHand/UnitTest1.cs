@@ -17,7 +17,7 @@ namespace CodingDojo_PokerHand
         [TestMethod]
         public void straightFlush_win_4OfAKind()
         {
-            var actual = _pokerGame.GetResult("sA,s2,s3,s4,s5", "SA,h1,c1,d1,s5");
+            var actual = _pokerGame.GetResult("sA,s2,s3,s4,s5", "SA,hA,cA,dA,s5");
             Assert.AreEqual("Cindy Win, Kind: Straight Flush", actual);
         }
 
