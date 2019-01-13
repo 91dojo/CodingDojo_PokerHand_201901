@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardConverter.cs" />
+    <Compile Include="CardJudgeTest.cs" />
     <Compile Include="CardTest.cs" />
     <Compile Include="PokerGame.cs" />
     <Compile Include="UnitTest1.cs" />
