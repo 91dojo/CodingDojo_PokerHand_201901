@@ -11,9 +11,31 @@ namespace CodingDojo_PokerHand
 
         public bool IsMatch(List<Card> cards)
         {
-            var isStraight = cards.GroupBy(c => c.Number).Count() == 5 &&
-                             cards.GroupBy(c => c.Number).Max(g => g.Key) -
-                             cards.GroupBy(c => c.Number).Min(g => g.Key) == 4;
+            var isCardAllDifferent = cards.GroupBy(c => c.Number).Count() == 5;
+            var numbers = cards.Select(c => c.Number).ToList();
+            var isStraight = isCardAllDifferent &&
+                             numbers.Max() -
+                             numbers.Min() == 4;
+            if (!isStraight)
+            {
+                if (numbers.Any(c => c == 1))
+                {
+                    var newNumbers = numbers.Select(x =>
+                    {
+                        if (x == 1)
+                        {
+                            return 14;
+                        }
+
+                        return x;
+                    });
+
+                    isStraight = isCardAllDifferent &&
+                                 newNumbers.Max() -
+                                 newNumbers.Min() == 4;
+                }
+            }
+
             return isStraight;
         }
 

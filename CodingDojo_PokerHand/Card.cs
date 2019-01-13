@@ -26,9 +26,15 @@ namespace CodingDojo_PokerHand
         public Card(string suit, string numbers)
         {
             _suit = suit.ToUpper();
+            
             _numbers = numbers.ToUpper();
+            
         }
 
+        public string Word
+        {
+            get { return _numbers; }
+        }
         public SuitType Suit
         {
             get
