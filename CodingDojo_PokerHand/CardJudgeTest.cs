@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace CodingDojo_PokerHand
 {
@@ -17,15 +17,28 @@ namespace CodingDojo_PokerHand
                 new Card("S", "4"),
                 new Card("S", "5")
             });
+            Assert.AreEqual(CartType.StraightFlush, cardJudge.CartType);
+        }
+
+        [TestMethod]
+        public void four_of_a_kind()
+        {
+            var cardJudge = new CardJudge(new List<Card>
+            {
+                new Card("S", "2"),
+                new Card("S", "2"),
+                new Card("S", "2"),
+                new Card("S", "3"),
+                new Card("S", "5")
+            });
+            Assert.AreEqual(CartType.FourOfAKind, cardJudge.CartType);
         }
     }
 
-    public class CardJudge
+    public enum CartType
     {
-        public CardJudge(List<Card> cards)
-        {
-            throw new System.NotImplementedException();
-        }
+        StraightFlush,
+        FourOfAKind
     }
 
     public enum CardType
