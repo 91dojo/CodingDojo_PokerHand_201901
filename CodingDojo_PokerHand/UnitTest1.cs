@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace CodingDojo_PokerHand
 {
@@ -43,7 +43,7 @@ namespace CodingDojo_PokerHand
             List<Card> player2Cards = GetCardOfList(card2);
 
             var cardType = GetCardType(player1Cards);
-            if (card1!=card2)
+            if (card1 != card2)
             {
                 return "Cindy Win, Kind: Straight Flush";
             }
@@ -58,30 +58,32 @@ namespace CodingDojo_PokerHand
 
         private List<Card> GetCardOfList(string card1)
         {
-            var card = new CardGentor();
-            return card.getList(card1);
+            var card = new CardConverter();
+            return card.GetList(card1);
         }
     }
 
-    internal class CardGentor
+    internal class CardConverter
     {
-        public List<Card> getList(string card1)
+        public List<Card> GetList(string cardString)
         {
-            var cardArray = card1.Split(',');
-            foreach (var card in cardArray)
-            {
-                new Card(card.Substring(0), card.Substring(1));
-            }
+            var cards = cardString.Split(',')
+                .Select(it => new Card(it.Substring(0, 1),
+                    it.Substring(1, it.Length-1)));
 
-            return new List<Card>();
+            return cards.ToList();
         }
     }
 
     internal class Card
     {
+        private readonly string _suit;
+        private readonly string _numbers;
+
         public Card(string suit, string numbers)
         {
-            
+            _suit = suit;
+            _numbers = numbers;
         }
     }
 }
