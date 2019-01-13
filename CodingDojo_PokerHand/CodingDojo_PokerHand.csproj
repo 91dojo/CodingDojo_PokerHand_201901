@@ -57,7 +57,10 @@
     <Compile Include="CardJudge.cs" />
     <Compile Include="CardJudgeTest.cs" />
     <Compile Include="CardTest.cs" />
+    <Compile Include="FourOfAKindMatcher.cs" />
+    <Compile Include="ICardTypeMatcher.cs" />
     <Compile Include="PokerGame.cs" />
+    <Compile Include="StraightFlushMatcher.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

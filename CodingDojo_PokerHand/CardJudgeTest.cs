@@ -17,7 +17,7 @@ namespace CodingDojo_PokerHand
                 new Card("S", "4"),
                 new Card("S", "5")
             });
-            Assert.AreEqual(CartType.StraightFlush, cardJudge.CartType);
+            Assert.AreEqual(CardType.StraightFlush, cardJudge.CardType);
         }
 
         [TestMethod]
@@ -31,17 +31,13 @@ namespace CodingDojo_PokerHand
                 new Card("S", "2"),
                 new Card("S", "5")
             });
-            Assert.AreEqual(CartType.FourOfAKind, cardJudge.CartType);
+            Assert.AreEqual(CardType.FourOfAKind, cardJudge.CardType);
         }
-    }
-
-    public enum CartType
-    {
-        StraightFlush,
-        FourOfAKind
     }
 
     public enum CardType
     {
+        StraightFlush,
+        FourOfAKind
     }
 }

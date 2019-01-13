@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace CodingDojo_PokerHand
 {
     public class CardJudge
     {
+        private readonly List<ICardTypeMatcher> _cardTypeMatchers = new List<ICardTypeMatcher>
+        {
+            new StraightFlushMatcher(),
+            new FourOfAKindMatcher(),
+        };
+
         public CardJudge(List<Card> cards)
         {
             Judge(cards);
@@ -12,31 +17,20 @@ namespace CodingDojo_PokerHand
 
         private void Judge(List<Card> cards)
         {
-            if (IsFlush(cards) && IsStraight(cards))
-                CartType = CartType.StraightFlush;
-            else if (IsFourOfaKind(cards))
-                CartType = CartType.FourOfAKind;
+            foreach (var cardTypeMatcher in _cardTypeMatchers)
+            {
+                if (cardTypeMatcher.IsMatch(cards))
+                {
+                    CardType = cardTypeMatcher.CardType;
+                    break;
+                }
+            }
+            //if (new StraightFlushMatcher().IsMatch(cards))
+            //    CardType = this.CardType.StraightFlush;
+            //else if (new FourOfAKindMatcher().IsMatch(cards))
+            //    CardType = this.CardType.FourOfAKind;
         }
 
-        private static bool IsFourOfaKind(List<Card> cards)
-        {
-            var isFourOfaKind = cards.GroupBy(c => c.Number).Any(x => x.Count() == 4);
-            return isFourOfaKind;
-        }
-
-        private static bool IsFlush(List<Card> cards)
-        {
-            return cards.GroupBy(c => c.Suit).Count() == 1;
-        }
-
-        private static bool IsStraight(List<Card> cards)
-        {
-            var isStraight = cards.GroupBy(c => c.Number).Count() == 5 &&
-                             cards.GroupBy(c => c.Number).Max(g => g.Key) -
-                             cards.GroupBy(c => c.Number).Min(g => g.Key) == 4;
-            return isStraight;
-        }
-
-        public CartType CartType { get; set; }
+        public CardType CardType { get; set; }
     }
 }
