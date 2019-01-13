@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingDojo_PokerHand
@@ -38,13 +39,21 @@ namespace CodingDojo_PokerHand
 
         public string GetResult(string card1, string card2)
         {
-            //List<Card> player1Cards = 
-            if (card1 != card2)
+            List<Card> player1Cards = GetCardOfList(card1);
+            List<Card> player2Cards = GetCardOfList(card2);
+
+            var cardType = GetCardType(player1Cards);
+            if (card1!=card2)
             {
                 return "Cindy Win, Kind: Straight Flush";
             }
 
             return "Draw, Kind: Straight Flush";
+        }
+
+        private string GetCardType(List<Card> player1Cards)
+        {
+            return "Straight Flush";
         }
 
         private List<Card> GetCardOfList(string card1)
