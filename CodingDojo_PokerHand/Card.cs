@@ -2,7 +2,7 @@
 
 namespace CodingDojo_PokerHand
 {
-    internal class Card
+    public class Card
     {
         private readonly string _suit;
         private readonly string _numbers;
