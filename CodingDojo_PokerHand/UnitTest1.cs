@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingDojo_PokerHand
 {
@@ -47,9 +48,17 @@ namespace CodingDojo_PokerHand
             return "";
         }
 
-        private void GetCardOfList(string card1)
+        private List<Card> GetCardOfList(string card1)
         {
-            throw new System.NotImplementedException();
+
+            var result = new List<Card>();
+            
+            return result;
         }
+    }
+
+    internal class Card
+    {
+
     }
 }
