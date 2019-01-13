@@ -48,17 +48,32 @@ namespace CodingDojo_PokerHand
             return "";
         }
 
-        private List<Card> GetCardOfList(string card1)
+        private List<CardGentor> GetCardOfList(string card1)
         {
+            var card = new CardGentor();
+            return card.getList(card1) ;
+        }
+    }
 
-            var result = new List<Card>();
+    internal class CardGentor
+    {
+        public List<CardGentor> getList(string card1)
+        {
+            var cardArray = card1.Split(',');
+            foreach (var card in cardArray)
+            {
+                new Card(card.Substring(0), card.Substring(1));
+            }
+            return new List<CardGentor>();
             
-            return result;
         }
     }
 
     internal class Card
     {
-
+        public Card(string suit, string numbers)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
