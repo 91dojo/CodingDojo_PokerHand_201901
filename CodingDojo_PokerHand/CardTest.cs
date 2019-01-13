@@ -28,12 +28,29 @@ namespace CodingDojo_PokerHand
             Assert.AreEqual(SuitType.Club, card.Suit);
             Assert.AreEqual(12, card.Number);
         }
+
+        [TestMethod]
+        public void HK()
+        {
+            var card = new Card("H", "K");
+            Assert.AreEqual(SuitType.Heart, card.Suit);
+            Assert.AreEqual(13, card.Number);
+        }
+
+        [TestMethod]
+        public void HA()
+        {
+            var card = new Card("H", "A");
+            Assert.AreEqual(SuitType.Heart, card.Suit);
+            Assert.AreEqual(1, card.Number);
+        }
     }
 
     public enum SuitType
     {
         Spade,
         Diamond,
-        Club
+        Club,
+        Heart
     }
 }

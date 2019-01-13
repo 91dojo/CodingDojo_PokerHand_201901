@@ -7,6 +7,22 @@ namespace CodingDojo_PokerHand
         private readonly string _suit;
         private readonly string _numbers;
 
+        private Dictionary<string, int> _lookNumber = new Dictionary<string, int>()
+        {
+            {"J",11},
+            {"Q",12},
+            {"K",13},
+            {"A",1},
+        };
+
+        private Dictionary<string, SuitType> _lookupSuitType = new Dictionary<string, SuitType>
+        {
+            {"S", SuitType.Spade },
+            {"D", SuitType.Diamond },
+            {"C", SuitType.Club },
+            {"H", SuitType.Heart },
+        };
+
         public Card(string suit, string numbers)
         {
             _suit = suit.ToUpper();
@@ -17,12 +33,7 @@ namespace CodingDojo_PokerHand
         {
             get
             {
-                var lookupSuitType = new Dictionary<string, SuitType>
-                {
-                    {"S", SuitType.Spade },
-                    {"D", SuitType.Diamond },
-                };
-                return lookupSuitType[_suit];
+                return _lookupSuitType[_suit];
             }
         }
 
@@ -30,14 +41,9 @@ namespace CodingDojo_PokerHand
         {
             get
             {
-                var lookNumber = new Dictionary<string, int>()
+                if (_lookNumber.ContainsKey(_numbers))
                 {
-                    {"J",11},
-                    {"Q",12},
-                };
-                if (lookNumber.ContainsKey(_numbers))
-                {
-                    return lookNumber[_numbers];
+                    return _lookNumber[_numbers];
                 }
                 return int.Parse(_numbers);
             }
