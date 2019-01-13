@@ -1,14 +1,25 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingDojo_PokerHand
 {
     [TestClass]
-    public class UnitTest1
+    public class PokerGameTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void same_card()
         {
+            var pokerGame = new PokerGame();
+
+            var actual = pokerGame.GetResult();
+            Assert.AreEqual("Draw", actual);
+        }
+    }
+
+    public class PokerGame
+    {
+        public string GetResult()
+        {
+            return "Draw";
         }
     }
 }
