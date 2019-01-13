@@ -12,10 +12,19 @@ namespace CodingDojo_PokerHand
             Assert.AreEqual(SuitType.Spade, card.Suit);
             Assert.AreEqual(9, card.Number);
         }
+
+        [TestMethod]
+        public void DJ()
+        {
+            var card = new Card("D", "J");
+            Assert.AreEqual(SuitType.Diamond, card.Suit);
+            Assert.AreEqual(11, card.Number);
+        }
     }
 
     public enum SuitType
     {
-        Spade
+        Spade,
+        Diamond
     }
 }
