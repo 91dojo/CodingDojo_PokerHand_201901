@@ -81,7 +81,7 @@ namespace CodingDojo_PokerHand
     {
         public Card(string suit, string numbers)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
